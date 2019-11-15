@@ -69,7 +69,7 @@ resource "azurerm_virtual_machine" "example" {
     connection {
       user     = "${local.admin_username}"
       password = "${local.admin_password}"
-      port     = 3389
+      port     = 5986
       https    = true
       timeout  = "10m"
 
