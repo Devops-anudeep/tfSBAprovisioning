@@ -72,6 +72,7 @@ resource "azurerm_virtual_machine" "example" {
       port     = 5986
       https    = true
       timeout  = "10m"
+      host = "${azurerm_virtual_machine.public_ip.name}"
 
       # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
       insecure = true
