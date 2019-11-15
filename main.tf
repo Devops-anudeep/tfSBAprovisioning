@@ -65,22 +65,22 @@ resource "azurerm_virtual_machine" "example" {
     }
   }
 
-  provisioner "remote-exec" {
-    connection {
-      user     = "${local.admin_username}"
-      password = "${local.admin_password}"
-      port     = 5986
-      https    = true
-      timeout  = "10m"
-      host = "${azurerm_virtual_machine.public_ip.name}"
+  # provisioner "remote-exec" {
+  #   connection {
+  #     user     = "${local.admin_username}"
+  #     password = "${local.admin_password}"
+  #     port     = 5986
+  #     https    = true
+  #     timeout  = "10m"
+  #     host = "${azurerm_virtual_machine.public_ip.name}"
 
-      # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
-      insecure = true
-    }
+  #     # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
+  #     insecure = true
+  #   }
 
-    inline = [
-      "cd C:\\Windows",
-      "dir",
-    ]
-  }
+  #   inline = [
+  #     "cd C:\\Windows",
+  #     "dir",
+  #   ]
+  # }
 }
