@@ -35,14 +35,14 @@ resource "azurerm_virtual_machine" "example" {
     custom_data    = "${local.custom_data_content}"
   }
 
-  os_profile_secrets {
-    source_vault_id = "${azurerm_key_vault.example.id}"
+  # os_profile_secrets {
+  #   source_vault_id = "${azurerm_key_vault.example.id}"
 
-    vault_certificates {
-      certificate_url   = "${azurerm_key_vault_certificate.example.secret_id}"
-      certificate_store = "My"
-    }
-  }
+  #   vault_certificates {
+  #     certificate_url   = "${azurerm_key_vault_certificate.example.secret_id}"
+  #     certificate_store = "My"
+  #   }
+  # }
 
   os_profile_windows_config {
     provision_vm_agent        = true
@@ -65,22 +65,22 @@ resource "azurerm_virtual_machine" "example" {
     }
   }
 
-  # provisioner "remote-exec" {
-  #   connection {
-  #     user     = "${local.admin_username}"
-  #     password = "${local.admin_password}"
-  #     port     = 5986
-  #     https    = true
-  #     timeout  = "10m"
-  #     host = "${azurerm_virtual_machine.public_ip.name}"
+  provisioner "remote-exec" {
+    connection {
+      user     = "${local.admin_username}"
+      password = "${local.admin_password}"
+      port     = 5986
+      https    = true
+      timeout  = "10m"
+      host = "${azurerm_public_ip.example.name}"
 
-  #     # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
-  #     insecure = true
-  #   }
+      # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
+      insecure = true
+    }
 
-  #   inline = [
-  #     "cd C:\\Windows",
-  #     "dir",
-  #   ]
-  # }
+    inline = [
+      "cd C:\\Windows",
+      "dir",
+    ]
+  }
 }
