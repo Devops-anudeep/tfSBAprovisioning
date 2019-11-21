@@ -69,3 +69,6 @@ variable ver {
     default = "latest"
 }
 
+variable storage_uri { 
+    description = "The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files."
+}
