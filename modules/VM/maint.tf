@@ -1,6 +1,6 @@
 # Create a Linux virtual machine
 resource "azurerm_virtual_machine" "vm" {
-  name                  = "${var.prefix}-VM"
+  name                  = "${var.prefix}"
   location              = "${var.location}"
   resource_group_name   = "${var.rg}"
   network_interface_ids = "${var.network_id}"
@@ -14,21 +14,14 @@ resource "azurerm_virtual_machine" "vm" {
     name              = "${var.prefix}-OsDisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    managed_disk_type = "${var.disk_type}"
   }
 
   storage_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2016-Datacenter"
-    version   = "latest"
-  }
-
-  storage_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04.0-LTS"
-    version   = "latest"
+    publisher = lookup(var.publisher, var.os)
+    offer     = lookup(var.offer, var.os)
+    sku       = lookup(var.sku, var.os)
+    version   = "${var.version}"
   }
 
   os_profile {

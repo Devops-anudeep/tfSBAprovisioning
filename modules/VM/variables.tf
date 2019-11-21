@@ -18,6 +18,11 @@ variable network_id{
     default = "SBAtf"
 }
 
+variable os {
+    description = "This variable is set to win for windows or linux for a linux vm"
+    default = "linux"
+}
+
 variable name{
     description = "This is a prefix added to new resource being added"
     default = "SBAtf"
@@ -33,4 +38,34 @@ variable password{
     default = "SBAtf"
 }
 
+variable disk_type{
+    description = "This is a prefix added to new resource being added"
+    default = "Standard_LRS"
+}
+
+
+variable publisher { 
+    default ={
+        win = "MicrosoftWindowsServer"
+        linux = "Canonical"
+    }
+}
+    
+variable offer {
+    default = {
+        win = "WindowsServer"
+        linux = "UbuntuServer"
+    }
+}     
+
+variable sku {
+    default = {
+        win = "2016-Datacenter" 
+        linux = "16.04.0-LTS"
+    }
+}      
+ 
+variable version {
+    default = "latest"
+}
 
