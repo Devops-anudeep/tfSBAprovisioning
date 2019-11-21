@@ -4,43 +4,35 @@ variable prefix{
 }
 
 variable location{
-    description = "This is a prefix added to new resource being added"
-    default = "East US"
+    description = "Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created."
 }
 
 variable rg{
-    description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
+    description = "Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created."
 }
 
 variable network_id{
-    description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
+    description = "A list of Network Interface ID's which should be associated with the Virtual Machine."
 }
 
 variable os {
-    description = "This variable is set to win for windows or linux for a linux vm"
-    default = "linux"
+    description = "Enter win for windows or linux for a linux vm"
 }
 
 variable name{
-    description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
+    description = "Specifies the name of the Virtual Machine."
 }
 
 variable username{
-    description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
+    description = "Specifies the name of the local administrator account"
 }
 
 variable password{
-    description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
+    description = "    The password associated with the local administrator account."
 }
 
 variable disk_type{
-    description = "This is a prefix added to new resource being added"
-    default = "Standard_LRS"
+    description = "Specifies the type of managed disk to create. Possible values are either Standard_LRS, StandardSSD_LRS, Premium_LRS or UltraSSD_LRS."
 }
 
 
