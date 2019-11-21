@@ -24,7 +24,6 @@ variable username{
 }
 
 variable password{
-    type = "password"
     description = "    The password associated with the local administrator account."
 }
 
