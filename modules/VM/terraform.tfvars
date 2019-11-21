@@ -1,0 +1,7 @@
+disk_type = "Standard_LRS"
+location = "East US"
+name = "vmetstappcf01"
+os = "linux"
+rg = "rg-sba-TerraformOut"
+storage_uri = "rgsbaterraformoutdiag"
+subnet_id = "/subscriptions/39c50f2a-f231-44a5-b03c-80631923cd80/resourceGroups/rg-sba-terraformout/providers/Microsoft.Network/virtualNetworks/rg-sba-terraformout-vnet/subnets/internal"
