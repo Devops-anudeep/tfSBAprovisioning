@@ -42,11 +42,6 @@ resource "azurerm_virtual_machine" "vm" {
     admin_password = var.password
   }
 
-  boot_diagnostics { 
-    enabled = true
-    storage_uri = var.storage_uri
-  }
-
   os_profile_linux_config {
     disable_password_authentication = false
   }
