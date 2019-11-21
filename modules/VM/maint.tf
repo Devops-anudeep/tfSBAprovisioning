@@ -1,9 +1,21 @@
+resource "azurerm_network_interface" "vm" {
+  name                = "${var.prefix}-nic"
+  location            = var.location
+  resource_group_name = var.rg
+
+  ip_configuration {
+    name                          = "configuration"
+    subnet_id                     = var.subnet_id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
 # Create a Linux virtual machine
 resource "azurerm_virtual_machine" "vm" {
   name                  = var.prefix
   location              = var.location
   resource_group_name   = var.rg
-  network_interface_ids = var.network_id
+  network_interface_ids = ["${azurerm_network_interface.vm.id}"]
   vm_size               = "Standard_B1ms"
 
   # This means the OS Disk will be deleted when Terraform destroys the Virtual Machine

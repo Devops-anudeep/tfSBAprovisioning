@@ -64,3 +64,7 @@ variable ver {
 variable storage_uri { 
     description = "The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files."
 }
+
+variable subnet_id {
+    description = "Reference to a subnet in which this NIC has been created. Required when private_ip_address_version is IPv4."
+}
