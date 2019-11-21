@@ -11,10 +11,6 @@ variable rg{
     description = "Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created."
 }
 
-variable network_id{
-    description = "A list of Network Interface ID's which should be associated with the Virtual Machine."
-}
-
 variable os {
     description = "Enter win for windows or linux for a linux vm"
 }
@@ -28,6 +24,7 @@ variable username{
 }
 
 variable password{
+    type = "password"
     description = "    The password associated with the local administrator account."
 }
 
