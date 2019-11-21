@@ -65,7 +65,7 @@ variable sku {
     }
 }      
  
-variable version {
+variable ver {
     default = "latest"
 }
 
