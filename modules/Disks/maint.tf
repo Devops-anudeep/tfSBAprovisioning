@@ -1,10 +1,6 @@
-  
-locals {  
-  number_of_disks = 2
-}
 
 resource "azurerm_managed_disk" "external" {
-  count                = local.number_of_disks
+  count                = var.number_of_disks
   name                 = "${var.prefix}-disk${count.index+1}"
   location             = var.location
   resource_group_name  = var.rg
