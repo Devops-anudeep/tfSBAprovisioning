@@ -63,3 +63,18 @@ variable storage_uri {
 variable subnet_id {
     description = "Reference to a subnet in which this NIC has been created. Required when private_ip_address_version is IPv4."
 }
+
+#Domain Join variables
+variable ad_name {
+    description = "Name of the domain ex: pixelrobots.co.uk"
+}
+variable ad_oupath {
+    description = "OU PATH for the domain join ex: OU=Servers,DC=pixelrobots,DC=co,DC=uk"
+}
+variable ad_user {
+    description = "UserName of the domain ex: pixelrobots.co.uk\\pr_admin"
+}
+variable ad_password {
+    description = "Password of the domain"
+}
+

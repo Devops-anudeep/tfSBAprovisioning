@@ -63,16 +63,16 @@ resource "azurerm_virtual_machine_extension" "MYADJOINEDVMADDE" {
 
   settings = <<SETTINGS
     {
-        "Name": "SBATEST.COM",
-        "OUPath": "OU=servers,DC=sbatest,DC=com",
-        "User": "sbatest.com\\sbatest",
+        "Name": "${var.ad_name}",
+        "OUPath": "${var.ad_oupath}",
+        "User": "${var.ad_user}",
         "Restart": "true",
         "Options": "3"
     }
 SETTINGS
   protected_settings = <<PROTECTED_SETTINGS
     {
-      "Password": "$BAtesting2019"
+      "Password": "${var.ad_password}"
     }
   PROTECTED_SETTINGS
   depends_on = ["azurerm_virtual_machine.vm"]
