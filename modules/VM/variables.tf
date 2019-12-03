@@ -1,6 +1,5 @@
 variable prefix{
     description = "This is a prefix added to new resource being added"
-    default = "SBAtf"
 }
 
 variable location{
